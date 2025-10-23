@@ -121,7 +121,6 @@ post '/create_payment_intent' do
   end
 
   begin
-    log_info(params)
     payment_intent = Stripe::PaymentIntent.create(
       :payment_method_types => params[:payment_method_types] || ['card_present'],
       :capture_method => params[:capture_method] || 'manual',
